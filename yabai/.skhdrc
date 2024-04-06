@@ -1,0 +1,34 @@
+# open terminal
+# cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# swap window
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# toggle window parent zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# change layout of desktop
+ctrl + alt - a : yabai -m space --layout bsp
+ctrl + alt - d : yabai -m space --layout float

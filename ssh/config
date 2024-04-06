@@ -1,0 +1,17 @@
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_appyhigh
+  AddKeysToAgent yes
+  User git
+
+Host personal
+  HostName github.com
+  IdentityFile ~/.ssh/id_personal
+  AddKeysToAgent yes
+  User git
+
+Host appyhigh
+  HostName github.com
+  IdentityFile ~/.ssh/id_appyhigh
+  AddKeysToAgent yes
+  User git
