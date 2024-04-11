@@ -4,7 +4,7 @@ font:
     family: FiraCode Nerd Font Mono
 
 window:
-  opacity: 0.9
+  opacity: 1
   decorations: "Buttonless"
 
 live_config_reload: true 

@@ -7,6 +7,6 @@ set incsearch
 set ignorecase
 set relativenumber
 
-nnoremap gi :action GotoImplementation<CR>
+nnoremap gI :action GotoImplementation<CR>
 nnoremap <leader>r :action RenameElement<CR>
-nnoremap <esc> :noh<return><esc>
+map //  :nohlsearch<CR>
