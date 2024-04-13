@@ -14,7 +14,6 @@ zstyle ':omz:update' mode reminder
 plugins=(
 git
 zsh-autosuggestions
-zsh-syntax-highlighting
 zsh-vi-mode
 )
 
