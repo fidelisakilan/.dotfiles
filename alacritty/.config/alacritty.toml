@@ -11,6 +11,8 @@ size = 16
 [font.normal]
 family = "FiraCode Nerd Font Mono"
 
+[font.bold]
+style = 'normal'
 
 [scrolling]
 history = 4000
