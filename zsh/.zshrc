@@ -2,13 +2,11 @@
 export LANG=en_US.UTF-8
 export ZSH="$HOME/.oh-my-zsh"
 
-
 # terminal theme
 COMPLETION_WAITING_DOTS="true"
 ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' mode reminder
-
 
 # zsh properties
 plugins=(
@@ -17,22 +15,15 @@ zsh-autosuggestions
 zsh-vi-mode
 )
 
+export PATH="$PATH":"$HOME/sdk/flutter/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/.cargo/bin"
+export PATH=/Users/fidelisakilan/.local/bin:$PATH
 
-# flutter
-export PATH="$PATH:$HOME/fvm"
-export PATH="$PATH:$HOME/fvm/default/bin"
-
-# alias
 alias f="fvm flutter"
 alias d="fvm dart"
 alias fcl="fvm flutter clean && fvm flutter pub get"
 alias vim="nvim"
 
+[[ -f /Users/fidelisakilan/.dart-cli-completion/zsh-config.zsh ]] && . /Users/fidelisakilan/.dart-cli-completion/zsh-config.zsh || true
 source $ZSH/oh-my-zsh.sh
-
-
-export PATH="/Users/fidelisakilan/.shorebird/bin:$PATH"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-export PATH=/Users/fidelisakilan/.local/bin:$PATH
-
-export PATH=$PATH:/Users/fidelisakilan/.spicetify

@@ -21,3 +21,6 @@ history = 4000
 program = "/bin/zsh"
 args = ["-l","-c","tmux attach || tmux"]
 
+[window]
+decorations = 'Buttonless'
+opacity = 0.9
