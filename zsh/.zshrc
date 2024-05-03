@@ -25,5 +25,4 @@ alias d="fvm dart"
 alias fcl="fvm flutter clean && fvm flutter pub get"
 alias vim="nvim"
 
-[[ -f /Users/fidelisakilan/.dart-cli-completion/zsh-config.zsh ]] && . /Users/fidelisakilan/.dart-cli-completion/zsh-config.zsh || true
 source $ZSH/oh-my-zsh.sh
