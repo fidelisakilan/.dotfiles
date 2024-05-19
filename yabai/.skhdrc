@@ -19,8 +19,6 @@ shift + alt - 6 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"
 shift + alt - 7 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((7+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
 shift + alt - 8 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((8+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
 shift + alt - 9 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((9+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev; sketchybar --trigger windows_on_spaces
-shift + alt - n : yabai -m window --space next; yabai -m space --focus next; sketchybar --trigger windows_on_spaces
 
 ## Window Navigation (through display borders): lalt - {h, j, k, l}
 alt - h : yabai -m window --focus west  || yabai -m display --focus west
@@ -28,23 +26,11 @@ alt - j : yabai -m window --focus south || yabai -m display --focus south
 alt - k : yabai -m window --focus north || yabai -m display --focus north
 alt - l : yabai -m window --focus east  || yabai -m display --focus east
 
-## Extended Window Navigation: lalt - {u, i}
-alt - u : yabai -m window --focus first
-alt - i : yabai -m window --focus last
-
 ## Moving windows in spaces: shift + lalt - {h, j, k, l}
 shift + alt - h : yabai -m window --warp west || $(yabai -m window --display west && sketchybar --trigger windows_on_spaces && yabai -m display --focus west && yabai -m window --warp last) || yabai -m window --move rel:-10:0
 shift + alt - j : yabai -m window --warp south || $(yabai -m window --display south && sketchybar --trigger windows_on_spaces && yabai -m display --focus south) || yabai -m window --move rel:0:10
 shift + alt - k : yabai -m window --warp north || $(yabai -m window --display north && sketchybar --trigger windows_on_spaces && yabai -m display --focus north) || yabai -m window --move rel:0:-10
 shift + alt - l : yabai -m window --warp east || $(yabai -m window --display east && sketchybar --trigger windows_on_spaces && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
-
-## Stacks and Stack Navigation
-shift + ctrl - h    : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-shift + ctrl - j    : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-shift + ctrl - k    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-shift + ctrl - l    : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-shift + ctrl - n : yabai -m window --focus stack.next
-shift + ctrl - p : yabai -m window --focus stack.prev
 
 ## Resize Windows: ctrl + lalt - {h, j, k, l}
 ctrl + alt - h : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
@@ -57,24 +43,12 @@ shift + ctrl + alt - h : yabai -m window --insert west
 shift + ctrl + alt - j : yabai -m window --insert south
 shift + ctrl + alt - k : yabai -m window --insert north
 shift + ctrl + alt - l : yabai -m window --insert east
-shift + ctrl + alt - s : yabai -m window --insert stack
 
-## Float / Unfloat Window and Window Zooms
-alt - space : yabai -m window --toggle float; sketchybar --trigger window_focus
-shift + alt - f : yabai -m window --toggle zoom-fullscreen; sketchybar --trigger window_focus
-alt - f : yabai -m window --toggle zoom-parent; sketchybar --trigger window_focus
-
-## Toggle split orientation and Mirror Space
+alt - f         : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
 shift + alt - s : yabai -m window --toggle split
-shift + alt - x : yabai -m space --mirror x-axis
-shift + alt - y : yabai -m space --mirror y-axis
+shift + alt - a : yabai -m space --layout bsp
+shift + alt - d : yabai -m space --layout float
 
-## Window and Space Management
-ctrl + alt - e : yabai -m space --balance
-ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
-ctrl + alt - b : yabai -m config window_border off 
-shift + ctrl + lalt - b : yabai -m config window_border on
-
-## Application Management
-alt - v : yabai -m window --insert east; skhd -k "cmd - n"
-alt - s : yabai -m window --insert south; skhd -k "cmd - n"
+alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
+ctrl + alt - r : yabai --restart-service"
