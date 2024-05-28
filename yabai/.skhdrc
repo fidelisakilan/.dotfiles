@@ -9,16 +9,16 @@ alt - 7 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai 
 alt - 8 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m space --focus $((8+4*($DISPLAY - 1)))
 alt - 9 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m space --focus $((9+4*($DISPLAY - 1)))
 
-## Moving windows between spaces: shift + lalt - {1, 2, 3, 4, p, n}
-shift + alt - 1 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((1+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 2 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((2+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 3 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((3+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 4 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((4+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 5 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((5+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 6 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((6+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 7 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((7+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 8 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((8+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
-shift + alt - 9 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((9+4*($DISPLAY - 1))) sketchybar --trigger windows_on_spaces
+## Moving windows between spaces: shift + lalt - {1, 2, 3, 4}
+shift + alt - 1 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((1+4*($DISPLAY - 1)))
+shift + alt - 2 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((2+4*($DISPLAY - 1)))
+shift + alt - 3 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((3+4*($DISPLAY - 1)))
+shift + alt - 4 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((4+4*($DISPLAY - 1)))
+shift + alt - 5 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((5+4*($DISPLAY - 1)))
+shift + alt - 6 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((6+4*($DISPLAY - 1)))
+shift + alt - 7 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((7+4*($DISPLAY - 1)))
+shift + alt - 8 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((8+4*($DISPLAY - 1)))
+shift + alt - 9 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m window --space $((9+4*($DISPLAY - 1)))
 
 ## Window Navigation (through display borders): lalt - {h, j, k, l}
 alt - h : yabai -m window --focus west  || yabai -m display --focus west
@@ -32,23 +32,9 @@ shift + alt - j : yabai -m window --warp south || $(yabai -m window --display so
 shift + alt - k : yabai -m window --warp north || $(yabai -m window --display north && sketchybar --trigger windows_on_spaces && yabai -m display --focus north) || yabai -m window --move rel:0:-10
 shift + alt - l : yabai -m window --warp east || $(yabai -m window --display east && sketchybar --trigger windows_on_spaces && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
 
-## Resize Windows: ctrl + lalt - {h, j, k, l}
-ctrl + alt - h : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
-ctrl + alt - j : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
-ctrl + alt - k : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
-ctrl + alt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
+alt - f : yabai -m window --toggle zoom-fullscreen
+alt - s : yabai -m window --toggle split
+alt - a : yabai -m space --layout bsp
+alt - d : yabai -m space --layout float
 
-## Insertion Points for Focused Containers: shift + ctrl + lalt - {h, j, k, l, s}
-shift + ctrl + alt - h : yabai -m window --insert west
-shift + ctrl + alt - j : yabai -m window --insert south
-shift + ctrl + alt - k : yabai -m window --insert north
-shift + ctrl + alt - l : yabai -m window --insert east
-
-alt - f         : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
-shift + alt - s : yabai -m window --toggle split
-shift + alt - a : yabai -m space --layout bsp
-shift + alt - d : yabai -m space --layout float
-
-alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
-ctrl + alt - r : yabai --restart-service"
+ctrl + alt - r : yabai --restart-service
