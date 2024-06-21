@@ -20,6 +20,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.cargo/bin"
 export PATH=/Users/fidelisakilan/.local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
+alias vim="nvim"
 
 source $ZSH/oh-my-zsh.sh
 
